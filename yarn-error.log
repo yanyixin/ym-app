@@ -1,0 +1,76 @@
+Arguments: 
+  /Users/yanmeng/.nvm/versions/node/v11.11.0/bin/node /Users/yanmeng/.nvm/versions/node/v11.11.0/bin/yarn install
+
+PATH: 
+  /Users/yanmeng/.nvm/versions/node/v11.11.0/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  11.11.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:58:26)
+
+npm manifest: 
+  {
+    "name": "ym-app",
+    "version": "1.0.0",
+    "description": "A Probot app",
+    "author": "yanmeng <ymfighting1@163.com>",
+    "license": "ISC",
+    "repository": "https://github.com//ym-app.git",
+    "homepage": "https://github.com//ym-app",
+    "bugs": "https://github.com//ym-app/issues",
+    "keywords": [
+      "probot",
+      "github",
+      "probot-app"
+    ],
+    "scripts": {
+      "dev": "nodemon",
+      "start": "probot run ./index.js",
+      "lint": "standard --fix",
+      "test": "jest && standard",
+      "test:watch": "jest --watch --notify --notifyMode=change --coverage"
+    },
+    "dependencies": {
+      "probot": "^7.2.0"
+    },
+    "devDependencies": {
+      "jest": "^24.0.0",
+      "nock": "^10.0.0",
+      "nodemon": "^1.17.2",
+      "smee-client": "^1.0.2",
+      "standard": "^12.0.1"
+    },
+    "engines": {
+      "node": ">= 8.3.0"
+    },
+    "standard": {
+      "env": [
+        "jest"
+      ]
+    },
+    "nodemonConfig": {
+      "exec": "npm start",
+      "watch": [
+        ".env",
+        "."
+      ]
+    },
+    "jest": {
+      "testEnvironment": "node"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
