@@ -1,19 +1,25 @@
+
+var xlsx = require('node-xlsx');
+var sheets = xlsx.parse('./text.xlsx');
+
 /**
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Application} app
  */
 module.exports = app => {
-  // Your code here
-  app.log('Yay, the app was loaded!')
+  app.on('issue_comment.created', async context => {
+    console.log('提交了')
+    const {payload} = context
+    const repo = payload.repository.name
+    const owner = payload.repository.owner.login
 
-  app.on(['issues.opened', 'issues.edited'], async context => {
-    const issueComment = context.issue({ body: '加油～' })
-    return context.github.issues.createComment(issueComment)
+    sheets.forEach(function(sheet) {
+      console.log('sheets--name---', sheets.name)
+      for(var rowId in sheet['data']){
+        var row=sheet['data'][rowId];
+        console.log('row-++++++', row);
+        context.github.issues.create({owner, repo, title: row[0], body: row[1], labels: [row[2]]})
+      }
+    })
   })
-
-  // For more information on building apps:
-  // https://probot.github.io/docs/
-
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
 }

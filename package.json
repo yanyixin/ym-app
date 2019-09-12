@@ -20,6 +20,7 @@
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
+    "node-xlsx": "^0.15.0",
     "probot": "^7.2.0"
   },
   "devDependencies": {
